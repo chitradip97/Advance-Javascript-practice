@@ -1,4 +1,5 @@
 // 9. Write a JavaScript program that creates a class called Bank with properties for bank names and branches. Include methods to add a branch, remove a branch, and display all branches. Create an instance of the Bank class and perform operations to add and remove branches.
+// https://www.w3resource.com/javascript-exercises/oop/index.php
 
 class Bank{
     constructor(name){

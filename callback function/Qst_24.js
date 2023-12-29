@@ -18,10 +18,16 @@ const students = [
 
 //   another Way
 
-function filterPassingStudents(students) {
-    return students.filter(student => student.grade >= 70);
-  }
+// function filterPassingStudents(students) {
+//     return students.filter(student => student.grade >= 70);
+//   }
 
-  const passingStudents = filterPassingStudents(students);
-console.log(passingStudents);
+//   const passingStudents = filterPassingStudents(students);
+// console.log(passingStudents);
+
+// another way
+
+let filterPassingStudents=students.filter(student => student.grade >= 70)
+
+console.log(filterPassingStudents)
   

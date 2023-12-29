@@ -7,28 +7,21 @@ const students = [
     { name: 'David', grade: 45 },
   ]
 
-  let filterPassingStudent=students.filter(student=>{
-     if (student.grade>=70)
-     {
-         return student
-     }
-  })
-  console.log(filterPassingStudent);
-    //   console.log(student.grade)
-    //  for(let value in student )
-    //  {
-    //   if(value.grade>=70)
-    //   {
-    //       value;
-    //   }
-//   return(  value.grade>=70? value:'' )
+//   let filterPassingStudent=students.filter(student=>{
+//      if (student.grade>=70)
+//      {
+//          return student
+//      }
+//   })
+//   console.log(filterPassingStudent);
+    
 
-    //  }
+//   another Way
 
-    //  student.filter(value=>{
-    //      value.grade>=70
-    //      console.log(value.grade)
-    //  }
-    //  )
-  
+function filterPassingStudents(students) {
+    return students.filter(student => student.grade >= 70);
+  }
+
+  const passingStudents = filterPassingStudents(students);
+console.log(passingStudents);
   

@@ -15,5 +15,30 @@
             <li class="li_class">Pineapple</li>
         </ul>
     </div>
+    <script>
+        let fruit=document.getElementById('paragraph');
+        let fruit_pre=document.getElementById('paragraph').previousElementSibling
+        let fruit_next=document.getElementById('paragraph').nextElementSibling;
+        console.log(fruit_pre);
+        console.log(fruit_next);
+        fruit_pre.style.color='green'
+        fruit_next.style.color='red'
+        fruit.style.fontStyle='italic'
+
+        let fruit_cl=document.getElementsByClassName('li_class');
+        
+        //let fruit_arr=Array.from(fruit_cl)
+        console.log(fruit_cl[0]);
+        let first_fruit=fruit_cl[1].previousElementSibling;
+        console.log(first_fruit);
+        first_fruit.style.fontWeight='bold'
+        let last_fruit=fruit_cl[1].nextElementSibling;
+        console.log(last_fruit);
+        last_fruit.style.fontWeight='bold'
+
+
+
+
+    </script>
 </body>
 </html>

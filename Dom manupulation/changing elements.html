@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="main">
+        <h1>fruit list</h1>
+        <p id="paragraph">All fruits are fresh and healthy</p>
+        <p id="item_del">item to bedeleted</p>
+        <ul>
+            <li class="li_class">Mango</li>
+            <li class="li_class">Oraange</li>
+            <li class="li_class">Pineapple</li>
+        </ul>
+    </div>
+    <script>
+        let element=document.getElementsByClassName('li_class')
+        element[0].classList.add('fruit')
+        //fruit[].style.color='red'
+        let new_class=document.getElementsByClassName('fruit')
+        new_class[0].style.color='red'
+
+        let new_para=document.createElement('p')
+        new_para.innerText='This is new fruit paragraph';
+        let parent_element=document.getElementById('main')
+        parent_element.append(new_para);
+
+        let element_del=document.getElementById('item_del')
+        parent_element.removeChild(element_del)
+
+    </script>
+</body>
+</html>

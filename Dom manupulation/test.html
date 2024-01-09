@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .completed{
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <div id="todoApp" >
+        <h1>ToDo List</h1>
+        <form action="">
+            <label for="newTask">New Task:</label>
+            <input type="text" id="newTask" name="newTask">
+            <input type="button" onclick="task()" value="submit">
+        </form>
+
+   
+        <!-- <form name="taskForm" onsubmit="return task()">
+            <label for="newTask">New Task:</label>
+            <input type="text" id="newTask" name="newTask">
+            <input type="submit">
+        </form> -->
+        <br><br>
+        <h3>Task Lisk:-</h3>
+        <ul id="taskList">
+            <!-- Task items will be added dynamically here -->
+            
+                
+        </ul>
+    </div>
+
+    <script>
+        let arr=[];
+        // let res=`<li>Task Lisk<li>`;
+        function task(){
+                let input_element=document.getElementById('newTask').value;
+                console.log(input_element);
+                
+                console.log('function called')
+                arr.push(input_element);
+                console.log(arr);
+                 show()
+                 
+            }
+            function show(){
+            let temp=arr.map((element,index)=>{
+                    return `<li><input type="checkbox" class="check_item"></li><li>${index+1}.${element} &nbsp <button  onclick="deletebtn('${element}')">Delete</button></li>`;
+                         console.log(element);
+                    
+                 })
+                 console.log(temp);
+                 res=temp.join('')
+
+                 document.getElementById("taskList").innerHTML=res;
+                 
+                }
+            function deletebtn(element){
+            // let element=document.getElementById('');
+            //this.data=element
+            console.log(element);
+           let index= arr.indexOf(element);
+           arr.splice(index,1);
+             show();
+
+
+            }  
+            
+            // let checkbox=document.getElementsByClassName('check_item')
+            let checkbox=document.getElementById('taskList').innerHTML;
+            checkbox.forEach(element => {
+                if(element.checked==true)
+                {
+                    checkbox.classList.add('completed');
+                }
+                else{
+                 checkbox.classList.remove('completed');
+                }
+            });
+            console.log(checkbox);
+            checkbox.addEventListener('change', function () {
+            if(checkbox.checked==true)
+            {
+                checkbox.classList.add('completed');
+            }
+        })
+            // else{
+            //     checkbox.classList.remove('completed');
+            // }
+
+            
+    </script>
+
+
+</body>
+</html>

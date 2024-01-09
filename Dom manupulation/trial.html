@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <style>
+        /* Add your CSS styles here */
+        #todoApp {
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .completed {
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <div id="todoApp">
+        <h1>ToDo List</h1>
+        <form id="taskForm">
+            <label for="newTask">New Task:</label>
+            <input type="text" id="newTask" required>
+            <button type="submit">Add Task</button>
+        </form>
+        <ul id="taskList">
+            <!-- Task items will be added dynamically here -->
+        </ul>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const taskForm = document.getElementById('taskForm');
+            const taskList = document.getElementById('taskList');
+
+            taskForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const newTaskInput = document.getElementById('newTask');
+                const taskText = newTaskInput.value.trim();
+
+                if (taskText !== '') {
+                    addTask(taskText);
+                    newTaskInput.value = '';
+                }
+            });
+
+            function addTask(taskText) {
+                const li = document.createElement('li');
+                li.textContent = taskText;
+
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Delete';
+                deleteButton.addEventListener('click', function () {
+                    taskList.removeChild(li);
+                });
+
+                const completeCheckbox = document.createElement('input');
+                completeCheckbox.type = 'checkbox';
+                completeCheckbox.addEventListener('change', function () {
+                    if (completeCheckbox.checked) {
+                        li.classList.add('completed');
+                    } else {
+                        li.classList.remove('completed');
+                    }
+                });
+
+                li.appendChild(completeCheckbox);
+                li.appendChild(deleteButton);
+
+                taskList.appendChild(li);
+            }
+        });
+    </script>
+</body>
+</html>

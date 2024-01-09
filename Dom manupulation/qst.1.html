@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Question: Create a simple to-do list application with the following features:
+
+        Users can add new tasks to the list.
+        Users can mark tasks as completed.
+        Users can delete tasks. -->
+
+        <div id="todoApp" >
+            <h1>ToDo List</h1>
+            <form name="taskForm" onsubmit="return task()">
+                <label for="newTask">New Task:</label>
+                <input type="text" id="newTask" name="newTask">
+                <input type="submit">
+            </form>
+            <ul id="taskList">
+                <!-- Task items will be added dynamically here -->
+            </ul>
+        </div>
+    
+        <script>
+            // Add your JavaScript code here
+            // let input_element=document.getElementById('newTask').value;
+            
+            
+            function task(){
+                let input_element=document.taskForm.newTask.value;
+                console.log(input_element);
+                let arr=[];
+                console.log('function called')
+                arr.push(input_element);
+                console.log(arr);
+                let res=`<li>Task Lisk<li>`;
+                arr.map((element)=>{
+                    temp=`<li>${element}<li>`;
+                    res=res+temp.join(' ')
+                })
+
+                document.getElementById("taskList").innerHTML=res;
+            }
+
+            
+             
+        </script>
+</body>
+</html>
